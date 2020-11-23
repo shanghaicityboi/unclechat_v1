@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "544716715832",
+    "firebase_url": "https://unclechatv1.firebaseio.com",
+    "project_id": "unclechatv1",
+    "storage_bucket": "unclechatv1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544716715832:android:5ac36c0f9382ad367c73cd",
+        "android_client_info": {
+          "package_name": "com.shanghaicityboi.unclechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544716715832-i6q315jmdqum9mukl5l6vfas7le4daui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-0KugUN34tjjP2Uv652AScGpMkWy9OdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544716715832-i6q315jmdqum9mukl5l6vfas7le4daui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

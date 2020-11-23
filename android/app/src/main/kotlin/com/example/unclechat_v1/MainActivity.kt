@@ -1,4 +1,4 @@
-package com.example.unclechat_v1
+package com.shanghaicityboi.unclechat
 
 import io.flutter.embedding.android.FlutterActivity
 
