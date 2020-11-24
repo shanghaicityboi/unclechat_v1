@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => HomeScreen());
+  }
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

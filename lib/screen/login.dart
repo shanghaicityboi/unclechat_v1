@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginScreen extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute<void>(builder: (_) => LoginScreen());
+  }
+
   final facebookAuth = FirebaseAuth.instance;
 
   @override

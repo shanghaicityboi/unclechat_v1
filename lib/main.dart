@@ -1,23 +1,30 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:unclechat_v1/screen/login.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unclechat_v1/app.dart';
+import 'package:unclechat_v1/bloc/auth/bloc.dart';
+import 'package:unclechat_v1/repo/user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(UncleChat());
+  final userRepo = UserRepo();
+  runApp(UncleChat(userRepo));
 }
 
 class UncleChat extends StatelessWidget {
+  UncleChat(this.userRepo);
+
+  final UserRepo userRepo;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Uncle Chat',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        appBarTheme: AppBarTheme(centerTitle: true),
+    return RepositoryProvider.value(
+      value: userRepo,
+      child: BlocProvider(
+        create: (_) => AuthBloc(userRepo),
+        child: App(),
       ),
-      home: LoginScreen(),
     );
   }
 }
