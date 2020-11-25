@@ -5,6 +5,7 @@ import 'package:unclechat_v1/bloc/auth/state.dart';
 import 'package:unclechat_v1/screen/home.dart';
 import 'package:unclechat_v1/screen/intro.dart';
 import 'package:unclechat_v1/screen/login.dart';
+import 'package:unclechat_v1/screen/profile.dart';
 
 class App extends StatefulWidget {
   @override
@@ -32,7 +33,7 @@ class _AppState extends State<App> {
             switch (state.status) {
               case AuthStatus.connected:
                 _navigator.pushAndRemoveUntil<void>(
-                  HomeScreen.route(),
+                  ProfileScreen.route(),
                   (route) => false,
                 );
                 break;

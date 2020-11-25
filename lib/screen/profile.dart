@@ -2,22 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:unclechat_v1/bloc/auth/bloc.dart';
 import 'package:unclechat_v1/bloc/auth/event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unclechat_v1/form/info.dart';
 
-class HomeScreen extends StatefulWidget {
+class ProfileScreen extends StatefulWidget {
   static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => HomeScreen());
+    return MaterialPageRoute<void>(builder: (_) => ProfileScreen());
   }
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Screen'),
+        title: Text('Profile Screen'),
         actions: [
           IconButton(
             icon: Icon(Icons.exit_to_app),
@@ -26,11 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Welcome to Home Screen'),
-          ],
+        child: SizedBox(
+          width: 250,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              InfoForm(),
+            ],
+          ),
         ),
       ),
     );
