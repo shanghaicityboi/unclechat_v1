@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:unclechat_v1/repo/user.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InfoForm extends StatelessWidget {
   final _formKey = GlobalKey<FormBuilderState>();
@@ -39,7 +41,7 @@ class InfoForm extends StatelessWidget {
       ),
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(context),
-        FormBuilderValidators.minLength(context, 6),
+        FormBuilderValidators.minLength(context, 3),
         FormBuilderValidators.maxLength(context, 16),
       ]),
       keyboardType: TextInputType.number,
@@ -55,6 +57,7 @@ class InfoForm extends StatelessWidget {
         hintText: 'Fill your birthyear',
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
+      valueTransformer: num.tryParse,
       validator: FormBuilderValidators.compose([
         FormBuilderValidators.required(context),
         FormBuilderValidators.min(context, _thisYear - 45),
@@ -74,7 +77,8 @@ class InfoForm extends StatelessWidget {
       allowClear: true,
       hint: Text('Select Gender'),
       validator: FormBuilderValidators.compose(
-          [FormBuilderValidators.required(context)]),
+        [FormBuilderValidators.required(context)],
+      ),
       items: _genders.map((gender) {
         return DropdownMenuItem(value: gender, child: Text(gender));
       }).toList(),
@@ -91,7 +95,8 @@ class InfoForm extends StatelessWidget {
       allowClear: true,
       hint: Text('Select Region'),
       validator: FormBuilderValidators.compose(
-          [FormBuilderValidators.required(context)]),
+        [FormBuilderValidators.required(context)],
+      ),
       items: _regions.map((region) {
         return DropdownMenuItem(value: region, child: Text(region));
       }).toList(),
@@ -120,6 +125,8 @@ class InfoForm extends StatelessWidget {
           _formKey.currentState.save();
           if (_formKey.currentState.validate()) {
             print(_formKey.currentState.value);
+            final info = _formKey.currentState.value;
+            context.read<UserRepo>().updateUserInfo(info);
           } else {
             print("validation failed");
           }
