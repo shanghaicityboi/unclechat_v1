@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:unclechat_v1/repo/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:unclechat_v1/repo/user.dart';
+import 'package:unclechat_v1/util/const.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class InfoForm extends StatelessWidget {
   final _formKey = GlobalKey<FormBuilderState>();
   final _thisYear = DateTime.now().year;
 
-  final List<String> _genders = ['Male', 'Female', 'LGBT'];
-  final List<String> _regions = ['Northern', 'Central', 'Southern', 'Foreign'];
+  final _genders = ['Nam', 'Nữ', 'LGBT'];
+  final _regions = ['Miền Nam', 'Miền Trung', 'Miền Bắc', 'Nước ngoài'];
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class InfoForm extends StatelessWidget {
       decoration: InputDecoration(
         labelText: 'Nickname',
         filled: true,
-        hintText: 'Fill your nickname',
+        hintText: 'fill_your_nickname'.tr(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       validator: FormBuilderValidators.compose([
@@ -79,6 +81,7 @@ class InfoForm extends StatelessWidget {
       validator: FormBuilderValidators.compose(
         [FormBuilderValidators.required(context)],
       ),
+      valueTransformer: convertToStandardGender,
       items: _genders.map((gender) {
         return DropdownMenuItem(value: gender, child: Text(gender));
       }).toList(),
@@ -97,6 +100,7 @@ class InfoForm extends StatelessWidget {
       validator: FormBuilderValidators.compose(
         [FormBuilderValidators.required(context)],
       ),
+      valueTransformer: convertToStandardRegion,
       items: _regions.map((region) {
         return DropdownMenuItem(value: region, child: Text(region));
       }).toList(),
