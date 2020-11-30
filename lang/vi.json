@@ -1,3 +1,17 @@
 {
-    "fill_your_nickname": "Biệt danh của bạn"
+    "male": "Nam",
+    "female": "Nữ",
+    "lgbt": "LGBT",
+    "northern": "Miền Bắc",
+    "central": "Miền Trung",
+    "southern": "Miền Nam",
+    "foreign": "Nước ngoài",
+    "nickname": "Biệt danh",
+    "fill_your_nickname": "Biệt danh của bạn",
+    "birthyear": "Năm sinh",
+    "fill_your_birthyear": "Năm sinh của bạn",
+    "gender": "Giới tính",
+    "select_gender": "Giới tính của bạn",
+    "region": "Khu vực",
+    "select_region": "Khu vực của bạn"
 }

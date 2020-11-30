@@ -9,8 +9,18 @@ class InfoForm extends StatelessWidget {
   final _formKey = GlobalKey<FormBuilderState>();
   final _thisYear = DateTime.now().year;
 
-  final _genders = ['Nam', 'Nữ', 'LGBT'];
-  final _regions = ['Miền Nam', 'Miền Trung', 'Miền Bắc', 'Nước ngoài'];
+  final _genders = [
+    'male'.tr(),
+    'female'.tr(),
+    'lgbt'.tr(),
+  ];
+
+  final _regions = [
+    'northern'.tr(),
+    'central'.tr(),
+    'southern'.tr(),
+    'foreign'.tr(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +46,7 @@ class InfoForm extends StatelessWidget {
     return FormBuilderTextField(
       name: 'name',
       decoration: InputDecoration(
-        labelText: 'Nickname',
+        labelText: 'nickname'.tr(),
         filled: true,
         hintText: 'fill_your_nickname'.tr(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -54,9 +64,9 @@ class InfoForm extends StatelessWidget {
     return FormBuilderTextField(
       name: 'year',
       decoration: InputDecoration(
-        labelText: 'Birthyear',
+        labelText: 'birthyear'.tr(),
         filled: true,
-        hintText: 'Fill your birthyear',
+        hintText: 'fill_your_birthyear'.tr(),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
       valueTransformer: num.tryParse,
@@ -73,11 +83,11 @@ class InfoForm extends StatelessWidget {
     return FormBuilderDropdown(
       name: 'gender',
       decoration: InputDecoration(
-        labelText: 'Gender',
+        labelText: 'gender'.tr(),
         filled: true,
       ),
       allowClear: true,
-      hint: Text('Select Gender'),
+      hint: Text('select_gender'.tr()),
       validator: FormBuilderValidators.compose(
         [FormBuilderValidators.required(context)],
       ),
@@ -92,11 +102,11 @@ class InfoForm extends StatelessWidget {
     return FormBuilderDropdown(
       name: 'region',
       decoration: InputDecoration(
-        labelText: 'Region',
+        labelText: 'region'.tr(),
         filled: true,
       ),
       allowClear: true,
-      hint: Text('Select Region'),
+      hint: Text('select_region'.tr()),
       validator: FormBuilderValidators.compose(
         [FormBuilderValidators.required(context)],
       ),

@@ -1,3 +1,17 @@
 {
-    "fill_your_nickname": "Fill your nickname"
+    "male": "Male",
+    "female": "Female",
+    "lgbt": "LGBT",
+    "northern": "Northern",
+    "central": "Central",
+    "southern": "Southern",
+    "foreign": "Foreign",
+    "nickname": "Nickname",
+    "fill_your_nickname": "Fill your nickname",
+    "birthyear": "Birthyear",
+    "fill_your_birthyear": "Fill your birthyear",
+    "gender": "Gender",
+    "select_gender": "Select gender",
+    "region": "Region",
+    "select_region": "Select region"
 }
